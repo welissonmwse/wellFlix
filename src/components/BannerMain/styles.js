@@ -36,7 +36,7 @@ ContentAreaContainer.Category = styled.h1`
   display: inline-block; 
   padding: 25px;
   line-height: 1;
-  border-radius: 4px;
+  /* border-radius: 4px; */
 
   @media (max-width: 800px) {
     display: none;
@@ -109,7 +109,7 @@ export const WatchButton = styled.button`
   font-weight: bold;
   font-size: 16px;
   outline: none;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   text-decoration: none;
   display: inline-block;
   border: 1px solid transparent;
