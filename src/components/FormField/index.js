@@ -19,6 +19,13 @@ export default function FormField ({label, type, value, name, onChange}){
                     <Label.Text>
                         {label}
                     </Label.Text>
+                    {/* <datalist>
+                        <option value="Front End" />
+                        <option value="Back End" />
+                        <option value="Data Science e Inteligência Artificial" />
+                        <option value="Filmes" />
+                        <option value="Games" />
+                    </datalist> */}
             </Label>
         </FormFieldWrapper>
     )

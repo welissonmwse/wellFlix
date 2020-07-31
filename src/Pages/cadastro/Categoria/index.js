@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import PageDefault from '../../../components/PageDefault'
 import FormField from '../../../components/FormField'
+import useForm from '../../../hooks/useForm'
+import Button from '../../../components/Button'
 
 function Categoria(){
     
@@ -11,37 +13,35 @@ function Categoria(){
         cor: '',
     }
 
+    const { handleChange, values, clearForm} = useForm(valoresIniciais)
     const [categorias, setCategorias] = useState([])
-    const [values, setValues] = useState(valoresIniciais)
-
-    const setValue = (chave, valor) => {
-        setValues({
-            ...values,
-            [chave]: valor,
-        })
-    }
-
-    const handleChange = (item) => {
-        setValue(
-            item.target.getAttribute('name'), 
-            item.target.value
-        )
-    }
 
     useEffect(() => {
-        if(window.location.href.includes('localhost')) {
-            const URL = 'https://wellflix.herokuapp.com/categorias'; 
-            fetch(URL)
-                .then(async (respostaDoServer) =>{
-                    if(respostaDoServer.ok) {
-                    const resposta = await respostaDoServer.json();
-                    setCategorias(resposta);
-                    return; 
-                }
-                throw new Error('Não foi possível pegar os dados');
-            })
-        }
-    }, []);
+        const URL = window.location.hostname.includes('localhost')
+          ? 'http://localhost:8080/categorias'
+          : 'https://wellflix.herokuapp.com/categorias'
+        fetch(URL)
+          .then(async (respostaDoServidor) => {
+            const resposta = await respostaDoServidor.json()
+            setCategorias([
+              ...resposta,
+            ])
+          })
+      },[])
+    // useEffect(() => {
+    //     if(window.location.href.includes('localhost')) {
+    //         const URL = 'https://wellflix.herokuapp.com/categorias'; 
+    //         fetch(URL)
+    //             .then(async (respostaDoServer) =>{
+    //                 if(respostaDoServer.ok) {
+    //                 const resposta = await respostaDoServer.json();
+    //                 setCategorias(resposta);
+    //                 return; 
+    //             }
+    //             throw new Error('Não foi possível pegar os dados');
+    //         })
+    //     }
+    // }, []);
 
     return(
         <PageDefault>
@@ -50,7 +50,7 @@ function Categoria(){
             <form onSubmit={(infoDoEvento) => {
                 infoDoEvento.preventDefault()
                 setCategorias([...categorias, values])
-                setValues(valoresIniciais)
+                clearForm()
             }}>
                 <FormField
                     label="Nome da Categoria"
@@ -73,16 +73,16 @@ function Categoria(){
                     value={values.cor}
                     onChange={handleChange}
                  />
-                <button>
+                <Button>
                     Cadastrar
-                </button>
+                </Button>
             </form>
 
             <ul>
-                {categorias.map((categoria, indice) => {
+                {categorias.map((categoria) => {
                     return (
-                        <li key={`${categoria}${indice}`}>
-                            {categoria.categoria}
+                        <li key={`${categoria.titulo}`}>
+                            {categoria.titulo}
                         </li>
                     )
                 })}
