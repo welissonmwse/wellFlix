@@ -1,0 +1,16 @@
+{
+    "categorias":[
+        {
+            "id": 1,
+            "categoria": "Front End",
+            "descricao": "Uma categoria bacanudassa",
+            "cor": "#cbd1ff"
+        },
+        {
+            "id": 1,
+            "categoria": "Beck End",
+            "descricao": "Outra categoria bacanudassa",
+            "cor": "#cbd1ff"
+        }
+    ]
+}

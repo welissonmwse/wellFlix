@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import PageDefault from '../../../components/PageDefault'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import PageDefault from '../../../components/PageDefault'
 import FormField from '../../../components/FormField'
 
 function Categoria(){
@@ -28,6 +28,21 @@ function Categoria(){
         )
     }
 
+    useEffect(() => {
+        if(window.location.href.includes('localhost')) {
+            const URL = 'http://localhost:8080/categorias'; 
+            fetch(URL)
+                .then(async (respostaDoServer) =>{
+                    if(respostaDoServer.ok) {
+                    const resposta = await respostaDoServer.json();
+                    setCategorias(resposta);
+                    return; 
+                }
+                throw new Error('Não foi possível pegar os dados');
+            })
+        }
+    }, []);
+
     return(
         <PageDefault>
             <h1>Cadastro de Categoria: {values.categoria}</h1>
@@ -46,7 +61,7 @@ function Categoria(){
                  />
                 <FormField
                     label="Descrição"
-                    type="text"
+                    type="textarea"
                     name="descricao"
                     value={values.descricao}
                     onChange={handleChange}
@@ -58,36 +73,15 @@ function Categoria(){
                     value={values.cor}
                     onChange={handleChange}
                  />
-                {/* <div>
-                    <label>
-                        Descrição:
-                        <textarea type="text" 
-                            value={values.descricao}
-                            name="descricao"
-                            onChange={handleChange}
-                        />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Cor:
-                        <input type="color" 
-                            value={values.cor}
-                            name="cor"
-                            onChange={handleChange}
-                        />
-                    </label>
-                </div> */}
-
                 <button>
                     Cadastrar
                 </button>
             </form>
 
             <ul>
-                {categorias.map((categoria) => {
-                    return(
-                        <li key={categoria}>
+                {categorias.map((categoria, indice) => {
+                    return (
+                        <li key={`${categoria}${indice}`}>
                             {categoria.categoria}
                         </li>
                     )
