@@ -4,6 +4,7 @@ import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import PageDefault from '../../components/PageDefault';
 import categoriasRepository from '../../repositories/categorias';
+import PlayVideo from '../../components/PlayVideo';
 
 function Home() {
   const [dadosIniciais, setDadosIniciais] = useState([]);
@@ -42,13 +43,14 @@ function Home() {
         }
 
         return (
+          
           <Carousel
             key={categoria.id}
             category={categoria}
           />
+          
         );
       })}
-
       {/* <BannerMain
         videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
         url={dadosIniciais.categorias[0].videos[0].url}

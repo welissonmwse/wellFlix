@@ -3,6 +3,7 @@ import { VideoCardGroupContainer, Title, ExtraLink } from './styles';
 import Slider, {SliderItem} from './components/Slider'
 import VideoCard from './components/VideoCard';
 
+
 function Carousel({
   ignoreFirstVideo,
   category,

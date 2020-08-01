@@ -204,6 +204,18 @@
       "url": "https://www.youtube.com/watch?v=Dgk6ExjjXOs",
       "categoriaId": 4,
       "id": 27
+    },
+    {
+      "titulo": "Antes de ser frontend assista esse vídeo",
+      "url": "https://www.youtube.com/watch?v=hGalqf_D8To",
+      "categoriaId": 1,
+      "id": 28
+    },
+    {
+      "titulo": "Video padão",
+      "url": "https://r3---sn-4g5e6ns7.googlevideo.com/videoplayback?expire=1596320253&amp;ei=fXklX-KFA8bkhwbjpL8I&amp;ip=2a01:4f8:160:834c::2&amp;id=32775a8003554f6c&amp;itag=18&amp;source=blogger&amp;mh=TV&amp;mm=31&amp;mn=sn-4g5e6ns7&amp;ms=au&amp;mv=m&amp;mvi=3&amp;pl=43&amp;susc=bl&amp;mime=video/mp4&amp;dur=1434.273&amp;lmt=1595153484110535&amp;mt=1596291328&amp;sparams=expire,ei,ip,id,itag,source,susc,mime,dur,lmt&amp;sig=AOq0QJ8wRQIgIc_6v6RL4a5wqVTOfnzo8hdoVT_ohN2C-0cJcUD-uMkCIQDcErMYmOG5CJ6iPHU8uQWvKb1xRH-QPO1JTiKmTynycg%3D%3D&amp;lsparams=mh,mm,mn,ms,mv,mvi,pl&amp;lsig=AG3C_xAwRQIhAP4M7kiF57lsrv-UBt7EUs4bPOk8qoWtNDrB8OH5Bg0QAiA2Rs5OS-VtU7wUykvEn8wIU9qSWuE4ky3oOsiM4aUcMA%3D%3D",
+      "categoriaId": 1,
+      "id": 29
     }
   ]
 }
